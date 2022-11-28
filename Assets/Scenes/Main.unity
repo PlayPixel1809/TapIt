@@ -14138,7 +14138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameplayScreen: {fileID: 826861787}
-  testMode: 1
+  testMode: 0
   androidId: 4095292
   iosId: 4095293
 --- !u!4 &1998280255
