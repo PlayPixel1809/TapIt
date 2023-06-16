@@ -3388,6 +3388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -14117,7 +14118,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1998280255}
-  - component: {fileID: 1998280254}
+  - component: {fileID: 1998280256}
   m_Layer: 0
   m_Name: AdsManager
   m_TagString: Untagged
@@ -14125,22 +14126,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1998280254
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1998280253}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 330d49c5c8286a54887929bf5226ff4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameplayScreen: {fileID: 826861787}
-  testMode: 0
-  androidId: 4095292
-  iosId: 4095293
 --- !u!4 &1998280255
 Transform:
   m_ObjectHideFlags: 0
@@ -14156,6 +14141,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1998280256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998280253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0ec3efa769e41843b24754eb8d3688c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTestMode: 0
+  testAdTxt: {fileID: 0}
+  androidBannerId: ca-app-pub-8381676393869635/7550673767
+  androidInterstitialId: ca-app-pub-8381676393869635/4911589055
+  androidRewardAdId: ca-app-pub-8381676393869635/6546296438
+  iphoneBannerId: 
+  iphoneInterstitialId: 
+  iphoneRewardAdId: 
 --- !u!1 &2001774029
 GameObject:
   m_ObjectHideFlags: 0
