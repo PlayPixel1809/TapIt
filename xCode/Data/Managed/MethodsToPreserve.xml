@@ -1,0 +1,44 @@
+<linker>
+	<assembly fullname="Assembly-CSharp" ignoreIfMissing="1">
+		<type fullname="GameoverScreen">
+			<method name="LeaderboardBtn"/>
+			<method name="RestartGameBtn"/>
+		</type>
+		<type fullname="GameplayScreen">
+			<method name="MaxSpeedLineSlider"/>
+			<method name="MaxSpeedSlider"/>
+			<method name="Mute"/>
+			<method name="RevivePlayer"/>
+			<method name="StartSpeedSlider"/>
+			<method name="TapScreenBtn"/>
+		</type>
+		<type fullname="HomeScreen">
+			<method name="StartGameBtn"/>
+		</type>
+		<type fullname="NoticeUtils">
+			<method name="NotificationBtn"/>
+			<method name="NotificationBtn"/>
+			<method name="NotificationBtn"/>
+		</type>
+		<type fullname="PauseScreen">
+			<method name="PauseGame"/>
+			<method name="ResumeGame"/>
+		</type>
+		<type fullname="PlayfabManager">
+			<method name="CloseHighscoresScreen"/>
+			<method name="GetHighscores"/>
+			<method name="UpdateHighscore"/>
+		</type>
+		<type fullname="SocialSharing">
+			<method name="ShareBtn"/>
+			<method name="ShareBtn"/>
+			<method name="ShareBtn"/>
+			<method name="ShareBtn"/>
+		</type>
+	</assembly>
+	<assembly fullname="UnityEngine.CoreModule" ignoreIfMissing="1">
+		<type fullname="UnityEngine.GameObject">
+			<method name="SetActive"/>
+		</type>
+	</assembly>
+</linker>
