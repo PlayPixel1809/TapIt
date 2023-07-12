@@ -14,6 +14,9 @@ public class Line : MonoBehaviour
     private int i = 0;
     private int direction = 1;
 
+    public Transform slots;
+    public Transform ghostDot;
+
     void Start()
     {
         FadeIn();
@@ -28,7 +31,7 @@ public class Line : MonoBehaviour
         }
     }
 
-    IEnumerator AnimateDot()
+    /*IEnumerator AnimateDot()
     {
         while (true)
         {
@@ -54,6 +57,29 @@ public class Line : MonoBehaviour
             }
         }
         
+    }*/
+
+    IEnumerator AnimateDot()
+    {
+        ghostDot.GetComponent<Animation>().Play();
+        
+        while (true)
+        {
+            
+
+            Transform closestSlot = slots.GetChild(0);
+            for (int i = 1; i < slots.childCount; i++)
+            {
+                if (Vector3.Distance(slots.GetChild(i).position, ghostDot.position) < Vector3.Distance(closestSlot.position, ghostDot.position)) { closestSlot = slots.GetChild(i); }
+            }
+            dot.SetParent(closestSlot);
+            dot.localPosition = Vector3.zero;
+            yield return null;
+            float speed = Mathf.Lerp(GameplayScreen.ins.startSpeed, GameplayScreen.ins.maxSpeed, GameplayScreen.ins.lines.childCount / GameplayScreen.ins.maxSpeedLine);
+            ghostDot.GetComponent<Animation>()["GhostDot"].speed = speed / 10;
+            Debug.Log(speed);
+        }
+
     }
 
     void OnTap()

@@ -127,11 +127,8 @@ public class AdManager : MonoBehaviour
     {
         if (this.interstitial.IsLoaded())
         {
-            // testAdTxt.text = "interstitial is loaded";
             interstitial.Show();
         }
-        // else
-        // testAdTxt.text = "interstitial is not loaded";
     }
 
 

@@ -14153,14 +14153,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0ec3efa769e41843b24754eb8d3688c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTestMode: 0
+  isTestMode: 1
   testAdTxt: {fileID: 0}
   androidBannerId: ca-app-pub-8381676393869635/7550673767
   androidInterstitialId: ca-app-pub-8381676393869635/4911589055
   androidRewardAdId: ca-app-pub-8381676393869635/6546296438
-  iphoneBannerId: 
-  iphoneInterstitialId: 
-  iphoneRewardAdId: 
+  iphoneBannerId: ca-app-pub-8381676393869635/4642076998
+  iphoneInterstitialId: ca-app-pub-8381676393869635/1836267483
+  iphoneRewardAdId: ca-app-pub-8381676393869635/5739536241
 --- !u!1 &2001774029
 GameObject:
   m_ObjectHideFlags: 0
