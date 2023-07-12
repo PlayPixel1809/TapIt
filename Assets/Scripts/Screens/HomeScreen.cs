@@ -10,7 +10,7 @@ public class HomeScreen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        musicPlayer.PlayMusic();
     }
 
     
@@ -20,7 +20,7 @@ public class HomeScreen : MonoBehaviour
         ScreenUtils.ActivateScreen(gameObject, gameplayScreen.gameObject, null,()=> 
         {
             gameplayScreen.StartGame();
-            musicPlayer.PlayMusic();
+            //musicPlayer.PlayMusic();
         });
     }
 }
