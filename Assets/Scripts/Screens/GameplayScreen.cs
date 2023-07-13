@@ -110,7 +110,7 @@ public class GameplayScreen : MonoBehaviour
             }
         });*/
 
-        AdManager.ins.ShowRewardedAds(()=> 
+        AdManager.ins.ShowRewardedAd(()=> 
         {
             score.text = (int.Parse(score.text) + 1).ToString();
             InstantiateLine();
@@ -156,7 +156,7 @@ public class GameplayScreen : MonoBehaviour
     {
         GameUtils.ins.PlaySound(onMissSound);
 
-        if (!revived && AdManager.ins.IsRewardedAdLoaded() && int.Parse(score.text) > minLinesToRevive - 1)
+        if (!revived && AdManager.ins.IsRewardedAdReady() && int.Parse(score.text) > minLinesToRevive - 1)
         {
             StartCoroutine("PlayReviveTimer");
         }
