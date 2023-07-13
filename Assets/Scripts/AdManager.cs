@@ -28,13 +28,34 @@ public class AdManager : MonoBehaviour
     {
         // When true all events raised by GoogleMobileAds will be raised
         // on the Unity main thread. The default value is false.
-        MobileAds.RaiseAdEventsOnUnityMainThread = true;
+        //MobileAds.RaiseAdEventsOnUnityMainThread = true;
 
 
         // Initialize the Google Mobile Ads SDK.
-        MobileAds.Initialize(initStatus => { });
 
-        LoadRewardedAd();
+        try
+        {
+            MobileAds.Initialize(initStatus => { });
+        }
+        catch (Exception e)
+        {
+
+            GameUtils.ins.AddDebugText(e.Message);
+        }
+
+
+        try
+        {
+            LoadRewardedAd();
+        }
+        catch (Exception e)
+        {
+
+            GameUtils.ins.AddDebugText(e.Message);
+        }
+
+
+        //LoadRewardedAd();
     }
 
 
@@ -54,7 +75,9 @@ public class AdManager : MonoBehaviour
         adUnitId = rewardedIdIos;
         if (isTestMode) { adUnitId = rewardedTestIdIos; }
 #endif
+        Debug.Log(adUnitId);
 
+        GameUtils.ins.AddDebugText("LoadRewardedAd,adUnitId=" + adUnitId);
 
         // Clean up the old ad before loading a new one.
         if (rewardedAd != null)
@@ -74,9 +97,10 @@ public class AdManager : MonoBehaviour
             if (error != null || ad == null)
             {
                 Debug.LogError("Rewarded ad failed to load an ad " + "with error : " + error);
+                GameUtils.ins.AddDebugText("error,"+error);
                 return;
             }
-
+            GameUtils.ins.AddDebugText("Rewarded ad loaded with response," + ad.GetResponseInfo());
             Debug.Log("Rewarded ad loaded with response : " + ad.GetResponseInfo());
             rewardedAd = ad;
         });
@@ -84,13 +108,15 @@ public class AdManager : MonoBehaviour
 
     public bool IsRewardedAdReady()
     {
-        if (rewardedAd != null && rewardedAd.CanShowAd()) { return true; }
+        if (rewardedAd != null && rewardedAd.CanShowAd()) { GameUtils.ins.AddDebugText("IsRewardedAdReady,ready"); return true; }
+        GameUtils.ins.AddDebugText("IsRewardedAdReady,notready");
         return false;
     }
 
     public void ShowRewardedAd(Action onRewardRecieved)
     {
-        rewardedAd.Show((Reward reward) => { onRewardRecieved?.Invoke(); });
+        GameUtils.ins.AddDebugText("ShowRewardedAd");
+        rewardedAd.Show((Reward reward) => { GameUtils.ins.AddDebugText("onRewardRecieved"); onRewardRecieved?.Invoke(); });
         LoadRewardedAd();
     }
 

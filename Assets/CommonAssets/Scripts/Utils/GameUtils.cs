@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameUtils : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class GameUtils : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip btnSoundDefault;
+
+    public Text debuText;
 
     public bool exitOnEscape;
 
@@ -40,4 +43,9 @@ public class GameUtils : MonoBehaviour
     }
 
     public void PlayBtnSound() { PlaySound(btnSoundDefault); }
+
+    public void AddDebugText(string text)
+    {
+        debuText.text += text + "  ||||  ";
+    }
 }
