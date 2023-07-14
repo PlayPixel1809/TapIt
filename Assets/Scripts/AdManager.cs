@@ -17,10 +17,18 @@ public class AdManager : MonoBehaviour
     private string rewardedTestIdAndroid = "ca-app-pub-3940256099942544/5224354917";
 
     public string  rewardedIdIos;
-    private string rewardedTestIdIos = "ca-app-pub-3940256099942544/1712485313"; 
+    private string rewardedTestIdIos = "ca-app-pub-3940256099942544/1712485313";
 
 
-    
+
+    public string interstitialIdAndroid;
+    private string interstitialTestIdAndroid = "ca-app-pub-3940256099942544/5224354917";
+
+    public string interstitialIdIos;
+    private string interstitialTestIdIos = "ca-app-pub-3940256099942544/1712485313";
+
+
+
     private RewardedAd rewardedAd;
 
 
@@ -54,7 +62,7 @@ public class AdManager : MonoBehaviour
             GameUtils.ins.AddDebugText(e.Message);
         }
 
-
+        LoadInterstitialAd();
         //LoadRewardedAd();
     }
 
@@ -121,7 +129,71 @@ public class AdManager : MonoBehaviour
     }
 
 
+
+
+
+
+
+    private InterstitialAd interstitialAd;
+
     
+    public void LoadInterstitialAd()
+    {
+        // Clean up the old ad before loading a new one.
+        if (interstitialAd != null)
+        {
+            interstitialAd.Destroy();
+            interstitialAd = null;
+        }
+
+        string adUnitId = string.Empty;
+
+#if UNITY_ANDROID
+        adUnitId = interstitialIdAndroid;
+        if (isTestMode) { adUnitId = interstitialTestIdAndroid; }
+#elif UNITY_IPHONE
+        adUnitId = interstitialIdIos;
+        if (isTestMode) { adUnitId = interstitialTestIdIos; }
+#endif
+        Debug.Log(adUnitId);
+
+
+        Debug.Log("Loading the interstitial ad.");
+
+        // create our request used to load the ad.
+        var adRequest = new AdRequest();
+        adRequest.Keywords.Add("unity-admob-sample");
+
+        // send the request to load the ad.
+        InterstitialAd.Load(adUnitId, adRequest,(InterstitialAd ad, LoadAdError error) =>
+        {
+            if (error != null || ad == null)
+            {
+                Debug.LogError("interstitial ad failed to load an ad " + "with error : " + error);
+                return;
+            }
+
+            Debug.Log("Interstitial ad loaded with response : " + ad.GetResponseInfo());
+
+            interstitialAd = ad;
+        });
+    }
+
+
+
+    public bool IsInterstitialAdReady()
+    {
+        if (interstitialAd != null && interstitialAd.CanShowAd()) {return true;}
+        return false;
+    }
+
+
+
+
+    public void ShowInterstitialAd()
+    {
+        interstitialAd.Show();
+    }
 
 
 
@@ -129,15 +201,4 @@ public class AdManager : MonoBehaviour
 
 
 
-
-
-
-
-
-
-
-
-
-
-   
 }

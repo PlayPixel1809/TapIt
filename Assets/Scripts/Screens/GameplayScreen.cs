@@ -97,6 +97,13 @@ public class GameplayScreen : MonoBehaviour
         StopCoroutine("PlayReviveTimer");
         revivePanel.gameObject.SetActive(false);
 
+        UnityAdsRewarded.ins.Show(delegate 
+        {
+            score.text = (int.Parse(score.text) + 1).ToString();
+            InstantiateLine();
+        });
+        
+        
         /*UnityAds.ins.ShowRewardedAd((UnityEngine.Advertisements.ShowResult showResult) => 
         {
             if (showResult == UnityEngine.Advertisements.ShowResult.Finished)
@@ -110,11 +117,13 @@ public class GameplayScreen : MonoBehaviour
             }
         });*/
 
-        AdManager.ins.ShowRewardedAd(()=> 
+        /*AdManager.ins.ShowRewardedAd(()=> 
         {
             score.text = (int.Parse(score.text) + 1).ToString();
             InstantiateLine();
-        });
+        });*/
+
+        
 
     }
 
@@ -156,7 +165,7 @@ public class GameplayScreen : MonoBehaviour
     {
         GameUtils.ins.PlaySound(onMissSound);
 
-        if (!revived && AdManager.ins.IsRewardedAdReady() && int.Parse(score.text) > minLinesToRevive - 1)
+        if (!revived && UnityAdsRewarded.ins.adLoaded && int.Parse(score.text) > minLinesToRevive - 1)
         {
             StartCoroutine("PlayReviveTimer");
         }

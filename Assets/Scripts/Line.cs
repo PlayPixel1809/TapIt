@@ -77,7 +77,6 @@ public class Line : MonoBehaviour
             yield return null;
             float speed = Mathf.Lerp(GameplayScreen.ins.startSpeed, GameplayScreen.ins.maxSpeed, GameplayScreen.ins.lines.childCount / GameplayScreen.ins.maxSpeedLine);
             ghostDot.GetComponent<Animation>()["GhostDot"].speed = speed / 10;
-            Debug.Log(speed);
         }
 
     }

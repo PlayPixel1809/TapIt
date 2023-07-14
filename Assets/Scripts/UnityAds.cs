@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Advertisements;
 
-public class UnityAds : MonoBehaviour, IUnityAdsListener
+public class UnityAds : MonoBehaviour//, IUnityAdsListener
 {
     public static UnityAds ins;
     void Awake() { ins = this; }
@@ -21,7 +21,7 @@ public class UnityAds : MonoBehaviour, IUnityAdsListener
 
     void Start()
     {
-        Advertisement.AddListener(this);
+        //Advertisement.AddListener(this);
 
         Advertisement.Initialize(androidId, testMode);
         StartCoroutine("ShowBanner");
@@ -31,19 +31,19 @@ public class UnityAds : MonoBehaviour, IUnityAdsListener
     {
         while (!Advertisement.Banner.isLoaded) { yield return new WaitForSeconds(1); }
         Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
-        Advertisement.Banner.Show();
+        //Advertisement.Banner.Show();
     }
 
 
     void OnGameOver()
     {
-        if (Advertisement.IsReady("rewardedVideo"))
+        /*if (Advertisement.IsReady("rewardedVideo"))
         {
             Advertisement.Show("rewardedVideo");
-        }
+        }*/
     }
 
-    public bool IsRewardedAdReady() { return Advertisement.IsReady("rewardedVideo"); }
+    public bool IsRewardedAdReady() { return true;/* Advertisement.IsReady("rewardedVideo");*/ }
 
     public void ShowRewardedAd(Action<ShowResult> onRewardedAdFinish)
     { 
