@@ -12,7 +12,7 @@ public class iosbuild : MonoBehaviour
     public static void OnPostProcessBuild(BuildTarget buildTarget, string path)
     {
 
-        if (buildTarget != BuildTarget.iOS)
+      /*  if (buildTarget != BuildTarget.iOS)
         {
             return;
         }
@@ -24,7 +24,7 @@ public class iosbuild : MonoBehaviour
         {
             project.SetBuildProperty(targetGuid, "ENABLE_BITCODE", "NO");
         }
-        project.WriteToFile(projPath);
+        project.WriteToFile(projPath);*/
     }
 
 }
