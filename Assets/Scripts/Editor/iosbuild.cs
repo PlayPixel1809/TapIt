@@ -4,27 +4,29 @@ using UnityEngine;
 using UnityEditor;
 using UnityEditor.Callbacks;
 using UnityEditor.iOS.Xcode;
+using System;
 
 public class iosbuild : MonoBehaviour
 {
 
-    [PostProcessBuild(999)]
-    public static void OnPostProcessBuild(BuildTarget buildTarget, string path)
+    [PostProcessBuildAttribute(Int32.MaxValue)] //We want this code to run last!
+    public static void OnPostProcessBuild(BuildTarget buildTarget, string pathToBuildProject)
     {
+#if UNITY_IOS
+        if (buildTarget != BuildTarget.iOS) return; // Make sure its iOS build
 
-      /*  if (buildTarget != BuildTarget.iOS)
-        {
-            return;
-        }
-        var projPath = PBXProject.GetPBXProjectPath(path);
-        var project = new PBXProject();
-        project.ReadFromFile(projPath);
-        var mainTargetGuid = project.GetUnityMainTargetGuid();
-        foreach (var targetGuid in new[] { mainTargetGuid, project.GetUnityFrameworkTargetGuid() })
-        {
-            project.SetBuildProperty(targetGuid, "ENABLE_BITCODE", "NO");
-        }
-        project.WriteToFile(projPath);*/
+        // Getting access to the xcode project file
+        string projectPath = pathToBuildProject + "/Unity-iPhone.xcodeproj/project.pbxproj";
+        PBXProject pbxProject = new PBXProject();
+        pbxProject.ReadFromFile(projectPath);
+
+        // Getting the UnityFramework Target and changing build settings
+        string target = pbxProject.GetUnityFrameworkTargetGuid();
+        pbxProject.SetBuildProperty(target, "ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES", "NO");
+
+        // After we're done editing the build settings we save it 
+        pbxProject.WriteToFile(projectPath);
+#endif
     }
 
 }

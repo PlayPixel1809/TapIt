@@ -61,12 +61,12 @@ public class Line : MonoBehaviour
 
     IEnumerator AnimateDot()
     {
-        ghostDot.GetComponent<Animation>().Play();
+        Animation ghostDotAnim = ghostDot.GetComponent<Animation>();
+        ghostDotAnim["GhostDot"].time = Random.Range(0, ghostDotAnim["GhostDot"].length);
+        ghostDotAnim.Play();
         
         while (true)
         {
-            
-
             Transform closestSlot = slots.GetChild(0);
             for (int i = 1; i < slots.childCount; i++)
             {
@@ -78,7 +78,6 @@ public class Line : MonoBehaviour
             float speed = Mathf.Lerp(GameplayScreen.ins.startSpeed, GameplayScreen.ins.maxSpeed, GameplayScreen.ins.lines.childCount / GameplayScreen.ins.maxSpeedLine);
             ghostDot.GetComponent<Animation>()["GhostDot"].speed = speed / 10;
         }
-
     }
 
     void OnTap()
