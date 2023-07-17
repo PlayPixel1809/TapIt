@@ -57,6 +57,7 @@ public class UnityAdsRewarded : MonoBehaviour, IUnityAdsInitializationListener, 
 
     public void Show(Action onComplete)
     {
+        adLoaded = false;
         onAdComplete = onComplete;
         Advertisement.Show(myAdUnitId, this);
     }
@@ -96,6 +97,7 @@ public class UnityAdsRewarded : MonoBehaviour, IUnityAdsInitializationListener, 
 
     public void OnUnityAdsShowComplete(string placementId, UnityAdsShowCompletionState showCompletionState)
     {
+        Advertisement.Load(myAdUnitId, this);
         onAdComplete?.Invoke();
     }
 

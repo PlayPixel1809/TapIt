@@ -17,6 +17,6 @@ public class SocialSharing : MonoBehaviour
         File.WriteAllBytes(filePath, tex.EncodeToPNG());
         Destroy(tex);
 
-        new NativeShare().AddFile(filePath).SetSubject("Tap It").SetText("Just Shared").Share();
+        new NativeShare().AddFile(filePath).SetSubject("Tap It").SetText("Just Shared").SetUrl("https://play.google.com/store/apps/details?id=com.playpixelinteractive.tapIt").Share();
     }
 }
