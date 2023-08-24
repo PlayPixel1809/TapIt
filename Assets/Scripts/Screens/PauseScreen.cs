@@ -12,10 +12,13 @@ public class PauseScreen : MonoBehaviour
 
     void OnEnable()
     {
-        bestScore.text = PlayerPrefs.GetInt("highscore").ToString();
-        dailyBestScore.text = PlayerPrefs.GetInt("dailyHighscore").ToString();
-        gamesPlayed.text = PlayerPrefs.GetInt("gamesPlayed").ToString();
+        if (PlayfabManager.ins.loginResult.InfoResultPayload.PlayerStatistics.Count > 0) 
+        { 
+            bestScore.text = PlayfabManager.ins.loginResult.InfoResultPayload.PlayerStatistics[0].Value.ToString();
+            dailyBestScore.text = PlayfabManager.ins.loginResult.InfoResultPayload.PlayerStatistics[0].Value.ToString();
+        }
 
+        gamesPlayed.text = PlayerPrefs.GetInt("gamesPlayed").ToString();
         if (AudioListener.volume > 0) { AudioListener.volume = .3f; }
     }
 

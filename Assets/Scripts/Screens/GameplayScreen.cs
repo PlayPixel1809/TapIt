@@ -57,8 +57,6 @@ public class GameplayScreen : MonoBehaviour
 
     void Start()
     {
-        if (!PlayerPrefs.HasKey("highscore")) { PlayerPrefs.SetInt("highscore", 0); }
-        if (!PlayerPrefs.HasKey("dailyHighscore")) { PlayerPrefs.SetInt("dailyHighscore", 0); }
         if (!PlayerPrefs.HasKey("gamesPlayed")) { PlayerPrefs.SetInt("gamesPlayed", 0); }
 
         onScore += OnScore;
@@ -140,7 +138,6 @@ public class GameplayScreen : MonoBehaviour
         onGameStart?.Invoke();
         lines.localPosition = new Vector3(0,0,0);
         score.text = "0";
-        highscore.text = PlayerPrefs.GetInt("highscore").ToString();
         GameUtils.ins.PlaySound(onGameStartSound);
         while (lines.childCount > 0) { DestroyImmediate(lines.GetChild(0).gameObject); }
         StartCoroutine("InstantiateLine");
@@ -150,12 +147,7 @@ public class GameplayScreen : MonoBehaviour
     void OnScore(int s)
     {
         score.text = (int.Parse(score.text) + 1).ToString();
-        if (int.Parse(score.text) > PlayerPrefs.GetInt("highscore")) 
-        { 
-            PlayerPrefs.SetInt("highscore", int.Parse(score.text));
-            highscore.text = PlayerPrefs.GetInt("highscore").ToString();
-        }
-        if (int.Parse(score.text) > PlayerPrefs.GetInt("dailyHighscore")) { PlayerPrefs.SetInt("dailyHighscore", int.Parse(score.text)); }
+        if (int.Parse(score.text) > int.Parse(highscore.text))  { highscore.text = score.text; }
 
         GameUtils.ins.PlaySound(onTargetSound);
         Utils.InvokeDelayedAction(.5f, () => { InstantiateLine(); }); 

@@ -16,6 +16,8 @@ public class GameoverScreen : MonoBehaviour
     {
         score.text = gameplayScreen.score.text;
 
+        PlayfabManager.ins.UpdateHighscore();
+
         performanceText.text = "You suck";
         if (int.Parse(gameplayScreen.score.text) > 3)  { performanceText.text = "Lame"; }
         if (int.Parse(gameplayScreen.score.text) > 6)  { performanceText.text = "Not terrible"; }
@@ -54,6 +56,6 @@ public class GameoverScreen : MonoBehaviour
 
     public void LeaderboardBtn()
     {
-        PlayfabManager.ins.SubmitHighscore();
+        PlayfabManager.ins.ShowLeaderboard(true);
     }
 }

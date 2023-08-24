@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: Steven
-  productName: 'Tap It Steven '
+  productName: Tap It
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -892,11 +892,11 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 0
-  cloudProjectId: fd6dde9f-0c8d-4003-a3fa-2c3f238fa806
+  cloudProjectId: df8d3f3c-9ca5-4635-bd58-6cbaf955510a
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: TapIt
-  organizationId: the_uchiha
+  projectName: 'Tap It Steven '
+  organizationId: binkez32
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 

@@ -2108,7 +2108,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 70
+  m_Text: 0
 --- !u!222 &396629915
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2307,7 +2307,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2038546371}
         m_TargetAssemblyTypeName: PlayfabManager, Assembly-CSharp
-        m_MethodName: UpdateHighscore
+        m_MethodName: ChangeDisplayName
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2866,7 +2866,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 9
+  m_Text: 0
 --- !u!222 &513122215
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3318,7 +3318,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 365.94}
+  m_AnchoredPosition: {x: 0, y: 365.93994}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!111 &570695001
@@ -4919,8 +4919,8 @@ MonoBehaviour:
   onMissSound: {fileID: 8300000, guid: 9bb8ee874dd17de428e2871ef224399e, type: 3}
   onGameStartSound: {fileID: 8300000, guid: fd73e278f3ec75f46827056038fa5a72, type: 3}
   startSpeed: 15
-  maxSpeed: 60
-  maxSpeedLine: 50
+  maxSpeed: 45
+  maxSpeedLine: 40
   ballRed: {fileID: 21300000, guid: 1e0597f0df1cc784e96e76d8ed56855c, type: 3}
   ballGreen: {fileID: 21300000, guid: b03ab33e395734c4d8e9ed54ad364ed2, type: 3}
   startSpeedSlider: {fileID: 1992039668}
@@ -6231,7 +6231,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 11
+  m_Text: 0
 --- !u!222 &1150756280
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7212,8 +7212,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2038546371}
         m_TargetAssemblyTypeName: PlayfabManager, Assembly-CSharp
-        m_MethodName: GetHighscores
-        m_Mode: 1
+        m_MethodName: ShowLeaderboard
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8461,7 +8461,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 102
+  m_Text: 0
 --- !u!222 &1675357442
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13949,8 +13949,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   testMode: 0
-  myGameIdAndroid: 4941277
-  myGameIdIOS: 4941276
+  myGameIdAndroid: 5392262
+  myGameIdIOS: 5392263
   adUnitIdAndroid: Rewarded_Android
   adUnitIdIOS: Rewarded_iOS
   adLoaded: 0
@@ -14991,6 +14991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: {fileID: 519879075}
+  bestScore: {fileID: 1150756279}
   gameplayScreen: {fileID: 826861784}
   gameoverScreen: {fileID: 1842903202}
   leaderboardScreen: {fileID: 1664319383}
@@ -14998,6 +14999,100 @@ MonoBehaviour:
   displayName: {fileID: 1133210661}
   scoreTabsParent: {fileID: 1389021395}
   scoreTabPrefab: {fileID: 151713706501674549, guid: 3fc1380803be96842b3a527c7490feb0, type: 3}
+  loginResult:
+    EntityToken:
+      Entity:
+        Id: 
+        Type: 
+      EntityToken: 
+    InfoResultPayload:
+      AccountInfo:
+        AndroidDeviceInfo:
+          AndroidDeviceId: 
+        AppleAccountInfo:
+          AppleSubjectId: 
+        CustomIdInfo:
+          CustomId: 
+        FacebookInfo:
+          FacebookId: 
+          FullName: 
+        FacebookInstantGamesIdInfo:
+          FacebookInstantGamesId: 
+        GameCenterInfo:
+          GameCenterId: 
+        GoogleInfo:
+          GoogleEmail: 
+          GoogleGender: 
+          GoogleId: 
+          GoogleLocale: 
+          GoogleName: 
+        IosDeviceInfo:
+          IosDeviceId: 
+        KongregateInfo:
+          KongregateId: 
+          KongregateName: 
+        NintendoSwitchAccountInfo:
+          NintendoSwitchAccountSubjectId: 
+        NintendoSwitchDeviceIdInfo:
+          NintendoSwitchDeviceId: 
+        OpenIdInfo: []
+        PlayFabId: 
+        PrivateInfo:
+          Email: 
+        PsnInfo:
+          PsnAccountId: 
+          PsnOnlineId: 
+        SteamInfo:
+          SteamCountry: 
+          SteamId: 
+          SteamName: 
+        TitleInfo:
+          AvatarUrl: 
+          DisplayName: 
+          TitlePlayerAccount:
+            Id: 
+            Type: 
+        TwitchInfo:
+          TwitchId: 
+          TwitchUserName: 
+        Username: 
+        WindowsHelloInfo:
+          WindowsHelloDeviceName: 
+          WindowsHelloPublicKeyHash: 
+        XboxInfo:
+          XboxUserId: 
+      CharacterInventories: []
+      CharacterList: []
+      PlayerProfile:
+        AdCampaignAttributions: []
+        AvatarUrl: 
+        ContactEmailAddresses: []
+        DisplayName: 
+        ExperimentVariants: []
+        LinkedAccounts: []
+        Locations: []
+        Memberships: []
+        PlayerId: 
+        PublisherId: 
+        PushNotificationRegistrations: []
+        Statistics: []
+        Tags: []
+        TitleId: 
+        ValuesToDate: []
+      PlayerStatistics: []
+      UserDataVersion: 0
+      UserInventory: []
+      UserReadOnlyDataVersion: 0
+    NewlyCreated: 0
+    PlayFabId: 
+    SessionTicket: 
+    SettingsForUser:
+      GatherDeviceInfo: 0
+      GatherFocusInfo: 0
+      NeedsAttribution: 0
+    TreatmentAssignment:
+      Variables: []
+      Variants: []
 --- !u!4 &2038546372
 Transform:
   m_ObjectHideFlags: 0
